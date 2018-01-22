@@ -436,7 +436,7 @@ def first_is_elsewhere_too(seq_seq):
             list += [seq_seq[k][j]]
     for m in range(len(seq_seq[0])):
         for t in range(len(list)):
-            if (seq_seq[0][m] == list[t]):
+            if(seq_seq[0][m] == list[t]):
                 return True
     return False
 
