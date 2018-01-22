@@ -109,27 +109,32 @@ def run_test_largest_negative_number():
 
     # Test 1:
     expected = -11
-    answer = largest_number([(-1000000000, -11, 4),
+    answer = largest_negative_number([(-1000000000, -11, 4),
                              (13, 50, 11, 7, 10),
                              [1, -23, 3, -400]])
     print('Expected and actual are:', expected, answer)
 
     # Test 2:
     expected = -1111111111111111
-    answer = largest_number(([], [-1111111111111111], []))
+    answer = largest_negative_number(([], [-1111111111111111], []))
     print('Expected and actual are:', expected, answer)
 
     # Test 3:
     expected = None
-    answer = largest_number(([], [], []))
+    answer = largest_negative_number(([], [], []))
     print('Expected and actual are:', expected, answer)
 
     # Test 4:
     expected = -2.6
-    answer = largest_number([(30, -5, 8, -20),
+    answer = largest_negative_number([(30, -5, 8, -20),
                             (100, -2.6, 88, -40, -5),
                             (400, 500)])
 
+    print('Expected and actual are:', expected, answer)
+
+    # Test 3:
+    expected = None
+    answer = largest_negative_number(([], [1], []))
     print('Expected and actual are:', expected, answer)
 
 def largest_negative_number(seq_seq):
@@ -167,11 +172,12 @@ def largest_negative_number(seq_seq):
     for k in range(len(seq_seq)):
         for r in range(len(seq_seq[k])):
             if(largest_number==None):
-                largest_number = seq_seq[k][r]
-            if(seq_seq[k][r] > 0):
-                largest_number=largest_number
-            if(math.abs(seq_seq[k][r]) < largest_number):
-                largest_number = seq_seq[k][r]
+                largest_number = (seq_seq[k][r])
+            if (seq_seq[k][r] > 0):
+                largest_number = None
+            if((seq_seq[k][r]) < 0):
+                if(math.fabs(seq_seq[k][r]) < (math.fabs(largest_number))):
+                    largest_number = seq_seq[k][r]
     return largest_number
 
 
